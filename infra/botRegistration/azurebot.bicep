@@ -5,7 +5,7 @@ param resourceBaseName string
 param botDisplayName string
 param msaAppTenantId string
 param botServiceName string = resourceBaseName
-param botServiceSku string = 'S1' // Standard tier. Can choose between S1, S2, S3, B1, B2, B3. F1 possible as well (free tier).
+param botServiceSku string = 'S1' // Standard tier. Can choose between S1 or F0.
 param botAadAppClientId string
 param botAppDomain string
 
@@ -15,7 +15,7 @@ resource botService 'Microsoft.BotService/botServices@2022-09-15' = {
   location: 'global'
   name: botServiceName
   identity: {
-    type: 'SystemAssigned'
+    type: 'None'
   }
   properties: {
     displayName: botDisplayName
